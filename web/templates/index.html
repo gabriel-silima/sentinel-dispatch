@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a1320">
+  <title>Sentinel Dispatch — Control Room</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="/"><span class="brand-mark">S<span>.</span></span><strong>SENTINEL<small>DISPATCH SYSTEM</small></strong></a>
+      <p class="muted kicker">WORKSPACE</p>
+      <div class="selected">▦ &nbsp; Control Room <span>01</span></div>
+      <p class="muted kicker">ACADEMIC BUILD</p>
+      <p class="muted">Aula 06 / Python</p>
+      <div class="sidebar-footer"><b>● SIMULATION MODE</b><p>Sem conexão operacional</p></div>
+    </aside>
+    <main>
+      <header><span>WORKSPACE / OPERATIONS / DISPATCH</span><span class="version">LOCAL ENVIRONMENT &nbsp; · &nbsp; V0.2</span></header>
+      <div class="content">
+        <p class="eyebrow">— OPERATIONAL SIMULATION / 001</p>
+        <div class="heading"><div><h1>Dispatch <em>Control.</em></h1><p>Secure input processing. Resilient operations.</p></div><span id="system-tag" class="state-tag">SYSTEM READY</span></div>
+        <div class="stats">
+          <article><label>VALID DISPATCHES</label><strong id="valid-count">00</strong><small>Sessão atual</small></article>
+          <article><label>INVALID ENTRIES</label><strong id="invalid-count">00</strong><small>Tratadas com segurança</small></article>
+          <article><label>SYSTEM STATE</label><strong id="state-value">ONLINE</strong><small>Aguardando entrada</small></article>
+        </div>
+        <div class="panels">
+          <section class="panel" aria-labelledby="dispatch-heading">
+            <p class="eyebrow">01 / INPUT CONTROL</p>
+            <h2 id="dispatch-heading">New Dispatch</h2>
+            <p>Insira um prefixo numérico de viatura simulada. Digite <code>999</code> para encerrar a sessão.</p>
+            <form id="dispatch-form" novalidate>
+              <label for="prefix">VEHICLE PREFIX</label>
+              <div class="field"><span>#</span><input id="prefix" type="text" inputmode="numeric" maxlength="64" autocomplete="off" placeholder="Ex.: 810605" aria-describedby="hint"><small>NUMERIC</small></div>
+              <p id="hint" class="hint">Entradas inválidas são tratadas por ValueError.</p>
+              <button id="dispatch-button" type="submit">PROCESS DISPATCH &nbsp; ↗</button>
+            </form>
+            <div class="feedback" id="feedback" role="status" aria-live="polite">Aguardando entrada do operador.</div>
+            <button type="button" id="reset-button" class="reset" hidden>REINICIAR SIMULAÇÃO</button>
+          </section>
+          <section class="panel" aria-labelledby="log-heading">
+            <p class="eyebrow">02 / LIVE ACTIVITY</p>
+            <div class="log-heading"><h2 id="log-heading">Event Log</h2><small id="event-count">0 EVENTS</small></div>
+            <p class="log-title">● LIVE SESSION LOG <span>LOCAL ONLY</span></p>
+            <ol id="event-log" aria-live="polite"><li class="empty">Nenhum evento registrado.</li></ol>
+            <p class="hint">Eventos temporários exibidos nesta página, sem banco de dados.</p>
+          </section>
+        </div>
+        <footer>© 2026 SENTINEL DISPATCH — ACADEMIC LAB <span>PYTHON · HTML · CSS · JAVASCRIPT</span></footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
